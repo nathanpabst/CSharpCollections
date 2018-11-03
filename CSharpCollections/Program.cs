@@ -64,26 +64,42 @@ namespace CSharpCollections
 
             //------------2D/MULTI-DIMENSIONAL ARRAY--------------
             //foreach loop will not work for 2d arrays..no inner arrays to loop through
-            Cell[,] sheet = new Cell[100, 10];
-            for (int r = 0; r < sheet.GetLength(0); r++)
-            {
-                for (int c = 0; c < sheet.GetLength(1); c++)
-                {
-                    sheet[r, c] = new Cell();
-                }
-                Console.WriteLine(sheet);
-            }
+            //Cell[,] sheet = new Cell[100, 10];
+            //for (int r = 0; r < sheet.GetLength(0); r++)
+            //{
+            //    for (int c = 0; c < sheet.GetLength(1); c++)
+            //    {
+            //        sheet[r, c] = new Cell();
+            //    }
+            //    Console.WriteLine(sheet);
+            //}
 
-            //initializing both values at once
-            int[,] matrix = new int[5, 5];
-            Console.WriteLine(matrix);
-            //example of an array with 3 dimensions
-            int[,,] threeDimMatrix = new int[5, 5, 5];
-            //example of combining jagged and multi-dimensional arrays..
-            //integer array of a three-dimensional multi-dimensional array of a single dimension array called yikes
-            int[][,,][] yikes = new int[5][,,][];
+            ////initializing both values at once
+            //int[,] matrix = new int[5, 5];
+            //Console.WriteLine(matrix);
+            ////example of an array with 3 dimensions
+            //int[,,] threeDimMatrix = new int[5, 5, 5];
+            ////example of combining jagged and multi-dimensional arrays..
+            ////integer array of a three-dimensional multi-dimensional array of a single dimension array called yikes
+            //int[][,,][] yikes = new int[5][,,][];
 
+            //---------ADDING TO ARRAYS--------------
 
+            //starting array containing three values
+            int[] ages = { 24, 31, 56 };
+            //adding a new array that holds four values
+            int[] agesCopy = new int[4];
+            //using CopyTo method to ages into the larger array
+            ages.CopyTo(agesCopy, 1);
+            //inserting the value 16 to the first position in the agesCopy array
+            agesCopy[0] = 16;
+            //overriding the copied value back into the ages variable
+            ages = agesCopy;
+            //use debugger to see results
+            //note..other classes uses a reference to the ages array will not reflect these changes. 
+            //every class using the ages variable would need to be changed
+            //this is an inefficient practice and could slow the program down. 
+            //same applies to removing an item from an array. use List instead.
 
             Console.Read();
         }
