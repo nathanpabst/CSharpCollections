@@ -11,13 +11,7 @@ namespace CSharpCollections
         public string Name { get; set; }
         public int GradeLevel { get; set; }
 
-        //implement the IComparable generic interface with the CompareTo method below
-        //compares the current instance with another object of the same type and returns an integer
-        //that indicates whether the current instance precedes, follows, or occurs in the same position
-        //in the sort order as the other object.
-        //CompareTo returns an integer. negative number if the object should be ordered before the object passed in
-        //positive number if the object should be ordered after && zero if objects are equivilent
-        //here we are sorting first by Name and then by grade level 
+        //method
         public int CompareTo(Student that)
         {
             int result = this.Name.CompareTo(that.Name);
@@ -27,6 +21,14 @@ namespace CSharpCollections
                 result = this.GradeLevel.CompareTo(that.GradeLevel);
             }
             return result;
+        }
+
+        //method overriding the GetHashCode method when the properties of the student object are the same
+        public override int GetHashCode()
+        {
+            //GetHashCode will return a number unique to the object. ie the values of the name & gradelevel properties
+            //combine the hash codes & return the value
+            return Name.GetHashCode() + GradeLevel.GetHashCode();
         }
     }
 }
