@@ -8,7 +8,6 @@ namespace CSharpCollections
         static void Main(string[] args)
         {
             //--------------SORT-------------------
-
             List<Student> students = new List<Student>
             {
                 new Student() { Name = "Sally", GradeLevel = 3},
