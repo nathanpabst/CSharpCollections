@@ -7,19 +7,28 @@ namespace CSharpCollections
     {
         static void Main(string[] args)
         {
-            //--------------SORT-------------------
-            List<Student> students = new List<Student>
+            //--------------HASHSET-------------------
+            HashSet<Student> students = new HashSet<Student>
             {
                 new Student() { Name = "Sally", GradeLevel = 3},
                 new Student() { Name = "Bob", GradeLevel = 3},
                 new Student() { Name = "Sally", GradeLevel = 2}
             };
 
-            //create an instance of SchoolRoll & add students using the AddStudents method
-            SchoolRoll schoolRoll = new SchoolRoll();
-            schoolRoll.AddStudents(students);
+            // create/add new student to the list
+            Student joe = new Student() { Name = "Joe", GradeLevel = 2 };
+            students.Add(joe);
 
-            foreach (Student student in schoolRoll.Students)
+            Student duplicateJoe = new Student() { Name = "Joe", GradeLevel = 2 };
+            students.Add(duplicateJoe);
+
+            //following lines demonstrates that new objects will be duplicated in the list
+            //hash sets use hash codes to determine if two objects are the same
+            //GetHashCode returns an integer for every object
+            //Console.WriteLine(joe.GetHashCode());
+            //Console.WriteLine(duplicateJoe.GetHashCode());
+
+            foreach (Student student in students)
             {
                 Console.WriteLine($"{student.Name} is in grade {student.GradeLevel}");
             }
