@@ -15,7 +15,11 @@ namespace CSharpCollections
             string[] studentArray = students.ToArray();
             //adding a new student at index 1
             students.Insert(1, "Frank");
+            //removing a student
             students.RemoveAt(2);
+            //when you don't know the index value..Remove() will find/remove the first instance of the parameter
+            //behind the scenes Remove is using the IndexOf() and RemoveAt() methods
+            students.Remove("Bob");
             foreach (string student in students)
             {
                 Console.WriteLine(student);
