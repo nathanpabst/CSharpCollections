@@ -25,9 +25,10 @@ namespace CSharpCollections
             //following lines demonstrates that new objects will be duplicated in the list
             //hash sets use hash codes to determine if two objects are the same
             //GetHashCode returns an integer for every object
+            //after overriding the Equals method the following hashcodes are identical
             //Console.WriteLine(joe.GetHashCode());
             //Console.WriteLine(duplicateJoe.GetHashCode());
-
+            
             foreach (Student student in students)
             {
                 Console.WriteLine($"{student.Name} is in grade {student.GradeLevel}");
